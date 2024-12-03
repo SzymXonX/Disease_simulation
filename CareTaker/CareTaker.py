@@ -1,16 +1,11 @@
-from Dot import Dot
 import json
 
 from CareTaker import Memento
-from Vector import Vector2D
-from State import IState, Healthy, Resistant, NoSymptoms, Symptoms 
-from Dot import Dot
 
 class CareTaker:
     mementos : list[Memento]
     def __init__(self):
         self.mementos = []
-
 
     def saveMementos(self, dotList):
         self.mementos = []
@@ -28,5 +23,4 @@ class CareTaker:
     def loadData(self):
         with open("simulationSave.json", "r") as file:
             data = json.load(file)
-
         return data

@@ -2,7 +2,7 @@ from math import sqrt
 from .IVector import IVector
 
 class Vector2D(IVector):
-    def __init__(self, x : float, y : float) -> None:
+    def __init__(self, x : float, y : float):
         self.x = x
         self.y = y
         

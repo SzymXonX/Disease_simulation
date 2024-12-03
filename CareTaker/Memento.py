@@ -1,11 +1,6 @@
 from State import IState
 from Vector import Vector2D
 
-
-
-
-
-
 class Memento:
     status: IState
     WIDTH = int
@@ -24,15 +19,14 @@ class Memento:
         self.status = status
         self.WIDTH = WIDTH
         self.HEIGHT = HEIGHT
-        self.posX = posX  # Tutaj już dostajesz `float`
-        self.posY = posY  # Tutaj już dostajesz `float`
-        self.velX = vel.getX()  # Tutaj konwertujesz `vel` na składniki float
+        self.posX = posX
+        self.posY = posY
+        self.velX = vel.getX()
         self.velY = vel.getY()
         self.speedScale = speedScale
         self.nextToSymptoms = nextToSymptoms
         self.nextToNoSymptoms = nextToNoSymptoms
         self.myRecovery = myRecovery
-
 
     def toDict(self):
         return {

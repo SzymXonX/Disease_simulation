@@ -17,17 +17,16 @@ class Simulation:
         self.all_container = pygame.sprite.Group()
         self.speedScale = min(self.width / mWidth, self.height / mHeight)
         self.running = True
+
         self.addButtons()
-
         self.addStartDots()
-
         self.start()
 
 
     def addButtons(self):
-        self.buttonColor = (0, 128, 255)
+        self.buttonColor = self.colors["blue"]
         self.buttonHoverColor = (0, 200, 255)
-        self.buttonTextColor = (0, 0, 0)
+        self.buttonTextColor = self.colors["black"]
         self.buttons = {
             "Zapisz": pygame.Rect(50, 650, 150, 40),
             "Wczytaj": pygame.Rect(250, 650, 150, 40),
@@ -83,7 +82,6 @@ class Simulation:
         cTaker.saveMementos(self.all_container)
         cTaker.saveData()
         
-
     def wczytajButton(self):
         cTaker = CareTaker()
         cTaker.loadData()
@@ -116,9 +114,8 @@ class Simulation:
     
     
     def draw(self):
-        self.screen.fill((255, 255, 255))  # Tło
+        self.screen.fill(self.colors["white"])
 
-        # Rysowanie przycisków
         for label, rect in self.buttons.items():
             color = self.buttonHoverColor if rect.collidepoint(pygame.mouse.get_pos()) else self.buttonColor
             pygame.draw.rect(self.screen, color, rect)
